@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stagiaire>
+    <st>
+        <Nom>Boutissante</Nom>
+        <Section>TDI</Section>
+        <Niveau>2</Niveau>
+        <Cours>Jour</Cours>
+    </st>
+    <st>
+        <Nom>Mazzouz</Nom>
+        <Section>TDI</Section>
+        <Niveau>2</Niveau>
+        <Cours>Jour</Cours>
+    </st> 
+    <st>
+        <Nom>Chaimae</Nom>
+        <Section>TDI</Section>
+        <Niveau>1</Niveau>
+        <Cours>Jour</Cours>
+    </st>
+    <st>
+        <Nom>Issam</Nom>
+        <Section>TDI</Section>
+        <Niveau>2</Niveau>
+        <Cours>Jour</Cours>
+    </st> 
+</stagiaire>

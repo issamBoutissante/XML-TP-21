@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tp 21</title>
+  </head>
+  <body>
+    <h1>Parcourir la liste des stagiaires</h1>
+    <div></div>
+    <button onclick="ChangerStagaire('premier')">|<<</button>
+    <button onclick="ChangerStagaire('precedent')"><<</button>
+    <button onclick="ChangerStagaire('suivant')">>></button>
+    <button onclick="ChangerStagaire('dernier')">>>|</button>
+  </body>
+  <script>
+    let xhr = new XMLHttpRequest();
+    let stagiaires;
+    let i = 0;
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState == 4) {
+        stagiaires = xhr.responseXML;
+        AfficherStagaire();
+      }
+    };
+    function AfficherStagaire() {
+      if (stagiaires == null) alert("il y'a pas des stagaires");
+      document.querySelector("div").innerHTML = `
+        <strong> Stagaire .......:</strong>${
+          stagiaires.getElementsByTagName("Nom").item(i).firstChild.data
+        }<br>
+         <strong> Section .......:</strong>${
+           stagiaires.getElementsByTagName("Section").item(i).firstChild.data
+         }<br>
+         <strong> Niveau .......:</strong>${
+           stagiaires.getElementsByTagName("Niveau").item(i).firstChild.data
+         }<br>
+         <strong> Cours .......:</strong>${
+           stagiaires.getElementsByTagName("Cours").item(i).firstChild.data
+         }<br>
+        `;
+    }
+    xhr.open("GET", "./stagiaire.xml");
+    xhr.send(null);
+    function ChangerStagaire(position) {
+      if (position == "premier") {
+        alert("ok");
+        i = 0;
+        afficherStagaire();
+      }
+      if (position == "precedent") {
+        i--;
+        afficherStagaire();
+      }
+      if (position == "suivant") {
+        i++;
+        afficherStagaire();
+      }
+      if (position == "dernier") {
+        i = stagiaires.getElementsByTagName("st").length;
+        afficherStagaire();
+      }
+    }
+  </script>
+</html>
